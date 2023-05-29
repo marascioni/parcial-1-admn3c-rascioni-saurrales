@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>TP1 - Aplicaciones para Dispositivos Móviles</title>
+
+        <!------------------------ CSS -BOOSTRAP ------------------------->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="index.css" rel="stylesheet">
+        <!--------------------------- VUEJS------------------------------->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+        <!------------------------- ROUTER ------------------------------>
+        <script src="https://unpkg.com/vue-router@3.0.0/dist/vue-router.js"></script>
+        
+        <link rel="icon" type="image/x-icon" href="./img/logo/logo1.png">
+
+    </head>
+
+    <body class="fondo">
+
+        <div class="contenedor">
+            <!--************************************************************-->
+            <!--********************** SESIÓN Y MENÚ ***********************-->
+            <!--************************************************************-->
+
+            <!------------- INICIO SESION - MOSTRAR OPCIONES MENU ------------>
+            <!---------------------------------------------------------------->
+            <login-modal @authenticated="authenticated" :panel-login-visible="panelLoginVisible"
+                :ocultar-panel-login="ocultarPanelLogin" :iniciar-sesion="iniciarSesion"></login-modal>
+            <!---------------------------- MENU ------------------------------>
+            <!---------------------------------------------------------------->
+            <nav class="navbar pt-2 pb-2 bg-white navbar-expand-lg navbar-light p-0 fs-5">
+                <div class="container-fluid logo">
+
+                    <img src="./img/logo/logo1.png" alt="Logo de la Galería SauRa">
+                    <a class="navbar-brand" href="#"> <em><strong>SauRa</strong> - Arte y Fotografía</em></a>
+
+
+                    <!---------------------------- MENU HAMBURGUESA ------------------>
+                    <!---------------------------------------------------------------->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbar" aria-controls="navbar"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <!------------------------ OPCIONES MENU ------------------------->
+                    <!---------------------------------------------------------------->
+                    <div class="collapse navbar-collapse" id="navbar">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li v-for="item in links" :class="'nav-item' + (item.active ? ' active' : '')" v-show="item.enable || login">
+                                <!-- utilizo router -->
+                            <router-link :to="item.url" :id="item.text" class="nav-link" :value="item.text" aria-current="page">{{item.text}}</router-link>                            
+                            </li>
+                        </ul>
+                        <!------------------------- SESIÓN USR --------------------------->
+                        <!---------------------------------------------------------------->
+                        <form class="d-flex">
+                            <button :class="`mb-2 btn btn-outline-${!login ? 'primary' : 'secondary'}`" @click="toogleLogin">
+                                {{login ? 'Cerrar sesión' : 'Iniciar sesión'}}
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+
+
+
+            <!--************************************************************-->
+            <!--********************** MAIN CONTENIDO **********************-->
+            <!--************************************************************-->
+            <main class="fondo">
+                <router-view></router-view>
+                <!---------------------------------------------------------------->
+                <!------------------------- MENSAJE USR -------------------------->
+                <!-- <p class="text-white">{{mensaje}}</p> --->
+                <!-- <p class="text-white">{{login ? 'Esta logueado con su usuario' : 'Para continuar, inicie sesión'}}</p> --->
+            </main>
+
+        </div>
+        <!------------------------- BOOTSTRAP --------------------------->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <!------------------------- COMPONENTS --------------------------->
+        <!-- <script src="./components/page-content.js"></script> -->
+        <script src="./components/login-modal.js"></script>    
+        <script src="./components/nueva-obra.js"></script>    
+        <script src="./components/show-obras.js"></script>      
+        <script src="index.js"></script>
+
+    </body>
+
+    <!--************************************************************-->
+    <!--********************** PIE DE PAGINA ***********************-->
+    <!--************************************************************-->
+    <footer class="bg-dark text-light text-center fs-4 p-3">
+        <section >      
+            <img class="logo2" src="./img/logo/logo1.png" alt="Logo de la Galería SauRa">          
+            <ul class="redes">
+                <a  href="https://es-la.facebook.com/" target="_blank" rel="noopener noreferrer"><img src="./img/redes/icono_facebook.png" alt="Facebook"></a>
+                <a  href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><img src="./img/redes/icono_instagram.png" alt="Instagram"></a>
+                <a  href="https://www.twitter.com/" target="_blank" rel="noopener noreferrer"><img src="./img/redes/icono_twitter.png" alt="Twitter"></a>
+                <a  href="https://api.whatsapp.com/send?phone=01159628124" target="_blank" rel="noopener noreferrer" ><img src="./img/redes/icono_wahatsapp.png" alt="watsapp"></a>
+            </ul>
+        </section>
+        <p>Rascioni Miguel - Saurrales Carolina - 2023 - Aplicación para dispositivos móviles - DWN2CV</p>
+    </footer>
+
+      
+</html>

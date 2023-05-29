@@ -1,0 +1,41 @@
+/*<!--************************************************************-->
+  <!--*********************** CSS ESTILOS ************************-->
+  <!--************************************************************-->*/
+
+/*--------------------------- PAGE CONTENT ------------------------*/
+.pageContent {padding: 1rem; margin: 1rem; border-radius: 1rem; text-align: center;}
+.pageContent__title {text-decoration: underline;}
+.pageContent__text {margin-top: 1rem;}
+
+/*---------------------------- TEXTOS ----------------------------*/
+li{display: inline-block; padding: 0.5px; vertical-align: top;}
+.active a{color: #9a22af !important;}
+body{font-family:verdana;}
+.red{color:#9a22af;text-transform: uppercase;text-decoration: line-through;}
+.green{color:rgb(14, 126, 160); font-weight: bold; text-transform: uppercase}
+p{text-indent: 20px;font-size: 1rem;}
+h1{text-align: center;}
+h1 + p{color: rgb(101, 101, 101); text-indent: 0; width: 90%; margin: 0 auto}
+h2{padding: 1; margin:0.2rem;}
+h3{color: #000000; font-size: .9rem; font-style:italic;}
+.hh {color: #9a22af; font-weight: bold;  font-size: 3rem; font-style:italic;}
+
+/*-------------------------- IMAGENES ---------------------------*/
+img{padding: 0px; width: 250px; border-radius: 2px}
+.img2{padding: 0px; margin:0px; width: 375px !important;}
+.marco{border: solid 4px grey;padding: 10px; max-width: 290px;border-radius: 5px;}
+.logo img{ width: 50px; margin-right: 5px;}
+.logo2 { margin-left: 40px; width: 9%;}
+.redes img{ display: inline-block;border-radius: 50%;border: 4px  solid  #b1ac1e;width: 35px;margin: 10px;justify-content: center;text-align: center;}
+
+/*------------------***-------- VIDEO ---------------------------*/
+.video { height: 62vh; width: 100vw; overflow: hidden ; }
+.videointeg {height: 0vh;width: 100vw;}
+
+/*----------------------------- FONDO ----------------------------*/
+.fondo {background-image: url("https://c.wallhere.com/photos/f9/5b/abstract_3D_texture_dark_digital_art-1904637.jpg!d");
+    background-size: cover;background-repeat: no-repeat;background-attachment: fixed;}
+.fondoCard{ background-color: rgb(224, 220, 220); padding: .5rem; border-radius: 2px;}
+
+/*---------------------------- VS -------------------------------*/
+[v-cloak] { display: none;}
